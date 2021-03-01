@@ -38,7 +38,7 @@ Untar Nexus Latest Package
 tar -zxvf  latest-unix.tar.gz
 ```
 
-Rename UNtar File To "nexus"  in "/opt/nexus" 
+Rename Untar File To "nexus"  in "/opt/nexus" 
 
 ```sh 
 mv /opt/latest-unix.tar.gz /opt/nexus
