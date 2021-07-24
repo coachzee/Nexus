@@ -3,7 +3,8 @@ Nexus is one a artifact repository which helps to store your build outcomes.
 
 Prerequisites
 1. Make Sure You Have Java Installed (Refer To Java Raequirement On Official Website)
-2. Validate Below Files 
+2. Validate Below Files
+3. 4 CPU cores minimium
 
 Update the /etc/security/limits.conf file 
 
