@@ -5,9 +5,11 @@ Prerequisites
 1. Make Sure You Have Java Installed (Refer To Java Raequirement On Official Website)
 2. Validate Below Files 
 
-Update File With Below Entry "/etc/security/limits.conf"
+Update the /etc/security/limits.conf file 
 
 ```sh
+# vim /etc/security/limits.conf
+
 root soft memlock unlimited
 root hard memlock unlimited
 root - nofile 65536
@@ -16,12 +18,16 @@ nexus - nofile 65536
 nexus - nproc 4096
 ```
 
-Update file with below entry  "/etc/sysctl.conf"
+Update file with below entry the /etc/sysctl.conf file and reload sysctl
 
 ```sh
+# vim /etc/sysctl.conf
+
 fs.file-max = 2097152
 vm.max_map_count = 262144
 vm.swappiness = 1
+
+# sysctl -p /etc/sysctl.conf
 ```
 
 # Implementation steps 
