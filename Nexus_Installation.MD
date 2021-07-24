@@ -34,54 +34,55 @@ vm.swappiness = 1
 Download and setup nexus stable version
 
 ```sh 
-cd /opt
+# cd /opt
 ```
 ```sh 
-wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+# wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
 ```
 Untar Nexus Latest Package
 ```sh 
-tar -zxvf  latest-unix.tar.gz
+# tar -zxvf  latest-unix.tar.gz
 ```
 
 Rename Untar File To "nexus"  in "/opt/nexus" 
 
 ```sh 
-mv /opt/nexus-3.32.0-03 /opt/nexus
+# mv /opt/nexus-3.32.0-03 /opt/nexus
 ```
 
 As a good security practice, it is not advised to run nexus service as root. so create new user called nexus and grant sudo access to manage nexus services 
 
 Create nexus service account 
 ```sh 
-useradd nexus
+# useradd nexus
+# passwd nexus
 ```
 As root Change Ownership Of the two files extracted  to nexus  like below "nexus" and "sonatype-work":
 ```sh 
-sudo chown -R nexus:nexus /opt/nexus
-sudo chown -R nexus:nexus /opt/sonartype-work
+# sudo chown -R nexus:nexus /opt/nexus
+# sudo chown -R nexus:nexus /opt/sonartype-work
 ```
 Edit and uncomment below file to run as nexus
 
 ```sh 
-vi /opt/nexus/bin/nexus.rc
+# vim /opt/nexus/bin/nexus.rc
 ```
 ```sh 
 run_as_user="nexus" (file shold have only this line and dont forget to uncomment "remove #")
 ```
 Add nexus as a service at boot time
 ```sh
-sudo ln -s /opt/nexus/bin/nexus /etc/init.d/nexus
+# sudo ln -s /opt/nexus/bin/nexus /etc/init.d/nexus
 ```
 Login as a nexus user and start service
 
 ```sh
-su - nexus
-service nexus start
+# su - nexus
+# service nexus start
 ```
 Validate VMoption Configuration 
 ```sh 
-vim /opt/nexus/bin/nexus.vmoptions
+# vim /opt/nexus/bin/nexus.vmoptions
 ```
 
 ```sh
@@ -105,12 +106,12 @@ vim /opt/nexus/bin/nexus.vmoptions
 Modify nexus-default.properties file.
 
 ```sh
-vim /opt/nexus/etc/nexus-default.properties
+# vim /opt/nexus/etc/nexus-default.properties
 ```
 Set Nexus as a System Service
 
 ```sh
-vim /etc/systemd/system/nexus.service
+# vim /etc/systemd/system/nexus.service
 ``` 
  ```sh
  [Unit]
@@ -131,9 +132,9 @@ WantedBy=multi-user.target
 ```
 Start, Reload Daemon $ Enable nexus service 
 ```sh
-systemctl daemon-reload
-systemctl start nexus.service
-systemctl enable nexus.service
+# systemctl daemon-reload
+# systemctl start nexus.service
+# systemctl enable nexus.service
 ```
  
 Login nexus server from browser on port 8081
