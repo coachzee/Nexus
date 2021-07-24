@@ -134,9 +134,12 @@ WantedBy=multi-user.target
 ```
 Start, Reload Daemon $ Enable nexus service 
 ```sh
-# systemctl daemon-reload
-# systemctl start nexus.service
-# systemctl enable nexus.service
+$ sudo systemctl daemon-reload
+$ sudo systemctl stop nexus.service
+$ sudo systemctl start nexus.service
+$ sudo systemctl enable nexus.service
+$ sudo systemctl status nexus.service
+
 ```
  
 Login nexus server from browser on port 8081
