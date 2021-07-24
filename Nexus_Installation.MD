@@ -56,6 +56,8 @@ Create nexus service account
 ```sh 
 # useradd nexus
 # passwd nexus
+# visudo
+nexus    ALL=(ALL)       NOPASSWD: ALL
 ```
 As root Change Ownership Of the two files extracted  to nexus  like below "nexus" and "sonatype-work":
 ```sh 
