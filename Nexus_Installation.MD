@@ -47,7 +47,7 @@ tar -zxvf  latest-unix.tar.gz
 Rename Untar File To "nexus"  in "/opt/nexus" 
 
 ```sh 
-mv /opt/latest-unix.tar.gz /opt/nexus
+mv /opt/nexus-3.32.0-03 /opt/nexus
 ```
 
 As a good security practice, it is not advised to run nexus service as root. so create new user called nexus and grant sudo access to manage nexus services 
